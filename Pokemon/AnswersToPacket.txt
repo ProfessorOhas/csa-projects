@@ -1,0 +1,56 @@
+Question to Exercise 1b: 
+Explain the difference between a field and a parameter. What is the difference in their syntax? 
+What is the difference in their scope and in the ways in which they may be used?
+
+Answer to Exercise 1b: 
+A field is bound to the object, while the parameter is just passed to the method in the object.
+Field syntax is different than parameter syntax because they can be declared with the "private" keyword.
+The scope of a field is the whole object, while the scope of the parameter is just to the method that it was passed to.
+
+Question to Exercise 3b:
+What is the difference between an accessor and a mutator? What naming conventions are used with accessor and mutators?
+
+Answer to Exercise 3c:
+An accessor is a method in which data from the object is accessed, and a mutator is a method in which data from the object is changed/mutated.
+Accessor methods start with "get" or "is", and mutator methods start with "set".
+
+Question to Exercise 3c:
+How do you write a class whose objects can be easily be printed on the console?
+
+Answer to Exercise 3c:
+Create a toString method in the class to change the object to a string to be printed to the console.
+
+Question to Exercise 4a:
+According to the Bulbepedia wiki, every stat for every instance of Pokemon should always be less than 255. 
+At no point will the total of a Pokemon's stats ever exceed 510 points.
+How could you ensure that client methods never incorrectly alter a Pokemon's stats? Explain and give an example below.
+
+Answer to Exercise 4a:
+One way that I can ensure that client never incorrectly alters a Pokemon's stats is the print out the stats after the user inputted them in so that they can confirm it.
+Another way is that there can be a method that adds up the stats and makes sure that it doesn't exceed 510, and then it would loop through all the stats to make sure that no single stat is greater than 255.
+If it does, then the user will have to reenter the stats for the Pokemon.
+Example:
+  User inputs:
+    HP - 69
+    Attack - 123
+    Special - 300
+    Hide - 12
+  
+  Console prints out: "Stats are incorrect. Please reenter!"
+
+  User inputs:
+    HP - 69
+    Attack - 123
+    Special - 200
+    Hide - 12
+
+  Ends method and goes on.
+
+Question to Exercise 4b:
+Are class invariants inherent to code? Or can they be changed? How does a coder decide whether to enforce a class invariant?
+How does a coder decide what the invariant should be?
+
+Answer to Exercise 4b:
+Class invariants are inherent to code, meaning that they are unchangeable.
+A coder can enforce a class invariant by having a precondition in a constructor or method to make sure that the class invariant is not incorrect.
+A coder can decide what the invariant should be by making that variable static and not changing the code anywhere.
