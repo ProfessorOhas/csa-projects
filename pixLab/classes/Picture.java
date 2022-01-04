@@ -160,6 +160,78 @@ public class Picture extends SimplePicture {
     }
   }
 
+  /**
+   * Method to mirror a picture around a mirror placed vertically from right to
+   * left
+   */
+  public void mirrorVerticalRightToLeft() {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++) {
+      for (int col = 0; col < width / 2; col++) {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
+  }
+
+  /**
+   * Method to mirror a picture around a mirror placed horizontally at the middle
+   * of the height of the picture
+   */
+  public void mirrorHorizontal() {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < height / 2; row++) {
+      for (int col = 0; col < pixels[0].length; col++) {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height - 1 - row][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+
+  /**
+   * Method to mirror a picture around a mirror placed horizontally from bottom to
+   * top
+   */
+  public void mirrorHorizontalBotToTop() {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < height / 2; row++) {
+      for (int col = 0; col < pixels[0].length; col++) {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height - 1 - row][col];
+        topPixel.setColor(bottomPixel.getColor());
+      }
+    }
+  }
+
+  /**
+   * Method to mirror just a square part of a picture from bottom left to top
+   * right around a mirror placed on a diagonal line
+   */
+  public void mirrorDiagonal() {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < height / 2; row++) {
+      for (int col = 0; col < pixels[0].length / 2; col++) {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height - 1 - row][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple() {
     int mirrorPoint = 276;

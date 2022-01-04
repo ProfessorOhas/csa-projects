@@ -55,6 +55,38 @@ public class PictureTester {
     caterpillar.explore();
   }
 
+  /** Method to test mirrorVerticalRightToLeft */
+  public static void testMirrorVerticalRightToLeft() {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+
+  /** Method to test mirrorHorizontal */
+  public static void testMirrorHorizontal() {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontal();
+    caterpillar.explore();
+  }
+
+  /** Method to test mirrorHorizontalBotToTop */
+  public static void testMirrorHorizontalBotToTop() {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontalBotToTop();
+    caterpillar.explore();
+  }
+
+  /** Method to test mirrorDiagonal */
+  public static void testMirrorDiagonal() {
+    Picture caterpillar = new Picture("beach.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorDiagonal();
+    caterpillar.explore();
+  }
+
   /** Method to test mirrorTemple */
   public static void testMirrorTemple() {
     Picture temple = new Picture("temple.jpg");
@@ -85,15 +117,19 @@ public class PictureTester {
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    // testZeroBlue();
     // testKeepOnlyBlue();
     // testKeepOnlyRed();
     // testKeepOnlyGreen();
     // testNegate();
     // testGrayscale();
     // testFixUnderwater();
-    // testMirrorVertical();
-    testMirrorTemple();
+    testMirrorVertical();
+    testMirrorVerticalRightToLeft();
+    testMirrorHorizontal();
+    testMirrorHorizontalBotToTop();
+    testMirrorDiagonal();
+    // testMirrorTemple();
     // testMirrorArms();
     // testMirrorGull();
     // testMirrorDiagonal();
@@ -107,9 +143,9 @@ public class PictureTester {
     // testSetRedToHalfValueInTopHalf();
     // testClearBlueOverValue(200);
     // testGetAverageForColumn(0);
-    testKeepOnlyBlue();
-    testNegate();
-    testGrayscale();
-    testFixUnderwater();
+    // testKeepOnlyBlue();
+    // testNegate();
+    // testGrayscale();
+    // testFixUnderwater();
   }
 }
