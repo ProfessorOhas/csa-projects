@@ -94,7 +94,7 @@ public class Picture extends SimplePicture {
     }
   }
 
-  /** Method to set the red and green to 0 */
+  /** Method to keep only the blue in an image */
   public void keepOnlyBlue() {
     Pixel[][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels) {
