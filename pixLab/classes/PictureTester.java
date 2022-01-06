@@ -111,12 +111,27 @@ public class PictureTester {
     seagull.explore();
   }
 
+  /** Method to test copyPartOfPicture */
+  public static void testCopyPartOfPicture() {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.createCollage();
+    canvas.explore();
+  }
+
   /** Method to test the collage method */
   public static void testCollage() {
     Picture canvas = new Picture("640x480.jpg");
     canvas.createCollage();
     canvas.explore();
   }
+
+  /** Method to test my collage method */
+  public static void testMyCollage() {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.myCollage();
+    canvas.explore();
+  }
+
 
   /** Method to test edgeDetection */
   public static void testEdgeDetection() {
@@ -143,9 +158,10 @@ public class PictureTester {
     // testMirrorDiagonal();
     // testMirrorTemple();
     // testMirrorArms();
-    testMirrorGull();
+    // testMirrorGull();
     // testMirrorDiagonal();
     // testCollage();
+    testMyCollage();
     // testCopy();
     // testEdgeDetection();
     // testEdgeDetection2();
