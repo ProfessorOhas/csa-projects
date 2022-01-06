@@ -304,7 +304,7 @@ public class Picture extends SimplePicture {
       // loop from 0 to just before the mirror point
       for (int col = 238; col < mirrorPoint; col++) {
         leftPixel = pixels[row][col];
-        rightPixel = pixels[row][mirrorPoint - col + mirrorPoint/5];
+        rightPixel = pixels[row][mirrorPoint - col + mirrorPoint - 300];
         rightPixel.setColor(leftPixel.getColor());
       }
     }
