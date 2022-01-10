@@ -1,9 +1,4 @@
 /**
- * This class contains class (static) methods
- * that will help you test the Picture class
- * methods. Uncomment the methods and the code
- * in the main to test.
- * 
  * @author Barbara Ericson
  */
 public class PictureTester {
@@ -140,14 +135,14 @@ public class PictureTester {
     swan.explore();
   }
 
-  /**
-   * Main method for testing. Every class can have a main
-   * method in Java
-   */
+  /** Method to test edgeDetection2 */
+  public static void testEdgeDetection2() {
+    Picture swan = new Picture("swan.jpg");
+    swan.edgeDetection2(5);
+    swan.explore();
+  }
+
   public static void main(String[] args) {
-    // uncomment a call here to run a test
-    // and comment out the ones you don't want
-    // to run
     // testZeroBlue();
     // testKeepOnlyRed();
     // testKeepOnlyGreen();
@@ -161,10 +156,10 @@ public class PictureTester {
     // testMirrorGull();
     // testMirrorDiagonal();
     // testCollage();
-    testMyCollage();
+    // testMyCollage();
     // testCopy();
-    // testEdgeDetection();
-    // testEdgeDetection2();
+    testEdgeDetection();
+    testEdgeDetection2();
     // testChromakey();
     // testEncodeAndDecode();
     // testGetCountRedOverValue(250);
