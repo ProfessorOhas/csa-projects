@@ -4,13 +4,9 @@ import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.*;
-import java.util.List; // resolves problem with java.awt.List and java.util.List
+import java.util.List;
 
-/**
- * A class that represents a picture. This class inherits from
- * SimplePicture and allows the student to add functionality to
- * the Picture class.
- * 
+/** 
  * @author Barbara Ericson ericson@cc.gatech.edu
  */
 public class Picture extends SimplePicture {
@@ -394,17 +390,89 @@ public class Picture extends SimplePicture {
   public void edgeDetection(int edgeDist) {
     Pixel leftPixel = null;
     Pixel rightPixel = null;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
     Pixel[][] pixels = this.getPixels2D();
     Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++) {
+    Color bottomColor = null;
+    for (int row = 0; row < pixels.length-1; row++) {
       for (int col = 0; col < pixels[0].length - 1; col++) {
         leftPixel = pixels[row][col];
         rightPixel = pixels[row][col + 1];
         rightColor = rightPixel.getColor();
-        if (leftPixel.colorDistance(rightColor) > edgeDist)
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[row+1][col];
+        bottomColor = bottomPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > edgeDist || topPixel.colorDistance(bottomColor) > edgeDist) {
           leftPixel.setColor(Color.BLACK);
-        else
+        }
+        else {
           leftPixel.setColor(Color.WHITE);
+        }
+      }
+    }
+  }
+
+  public void edgeDetection2(int edgeDist) {
+    Pixel TopLeftPixel = null;
+    Pixel TopMiddlePixel = null;
+    Pixel TopRightPixel = null;
+    Pixel MiddleLeftPixel = null;
+    Pixel MiddleRightPixel = null;
+    Pixel BottomLeftPixel = null;
+    Pixel BottomMiddlePixel = null;
+    Pixel BottomRightPixel = null;
+    Pixel MiddlePixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color TopLeftColor = null;
+    Color TopMiddleColor = null;
+    Color TopRightColor = null;
+    Color MiddleLeftColor = null;
+    Color MiddleRightColor = null;
+    Color BottomLeftColor = null;
+    Color BottomMiddleColor = null;
+    Color BottomRightColor = null;
+    for (int row = 0; row < pixels.length-1; row++) {
+      for (int col = 0; col < pixels[0].length - 1; col++) {
+        if (row == 0 || col == 0 || row == 1 || col == 1 || row == pixels.length-2 || col == pixels[0].length-2) {
+          MiddlePixel = pixels[row][col];
+          MiddleRightPixel = pixels[row][col + 1];
+          MiddleRightColor = MiddleRightPixel.getColor();
+          BottomMiddlePixel = pixels[row+1][col];
+          BottomMiddleColor = BottomMiddlePixel.getColor();
+          if (MiddlePixel.colorDistance(MiddleRightColor) > edgeDist || MiddlePixel.colorDistance(BottomMiddleColor) > edgeDist) {
+            MiddlePixel.setColor(Color.BLACK);
+          }
+          else {
+            MiddlePixel.setColor(Color.WHITE);
+        }
+        } else {
+          MiddlePixel = pixels[row][col];
+          MiddleRightPixel = pixels[row][col + 1];
+          MiddleRightColor = MiddleRightPixel.getColor();
+          MiddleLeftPixel = pixels[row][col - 1];
+          MiddleLeftColor = MiddleLeftPixel.getColor();
+
+          TopLeftPixel = pixels[row - 1][col - 1];
+          TopLeftColor = TopLeftPixel.getColor();
+          TopMiddlePixel = pixels[row - 1][col];
+          TopMiddleColor = TopMiddlePixel.getColor();
+          TopRightPixel = pixels[row - 1][col + 1];
+          TopRightColor = TopRightPixel.getColor();
+
+          BottomLeftPixel = pixels[row + 1][col - 1];
+          BottomLeftColor = BottomLeftPixel.getColor();
+          BottomMiddlePixel = pixels[row + 1][col];
+          BottomMiddleColor = BottomMiddlePixel.getColor();
+          BottomRightPixel = pixels[row + 1][col + 1];
+          BottomRightColor = BottomRightPixel.getColor();
+          if (MiddlePixel.colorDistance(MiddleRightColor) > edgeDist && MiddlePixel.colorDistance(MiddleLeftColor) > edgeDist && MiddlePixel.colorDistance(TopLeftColor) > edgeDist && MiddlePixel.colorDistance(TopMiddleColor) > edgeDist && MiddlePixel.colorDistance(TopRightColor) > edgeDist && MiddlePixel.colorDistance(BottomLeftColor) > edgeDist && MiddlePixel.colorDistance(BottomMiddleColor) > edgeDist && MiddlePixel.colorDistance(BottomRightColor) > edgeDist) {
+            MiddlePixel.setColor(Color.BLACK);
+          }
+          else {
+            MiddlePixel.setColor(Color.WHITE);
+          }
+        }
       }
     }
   }
@@ -420,4 +488,4 @@ public class Picture extends SimplePicture {
     beach.explore();
   }
 
-} // this } is the end of class Picture, put all new methods before this
+}
