@@ -2,12 +2,26 @@
 public class Others {
 
 	public static void main(String[] args) {
-		Others sloth = new Others();
-		System.out.println(sloth);
-	}
+		int m = 8;
 
-	public String toString() {
-		return "This is an example of a toString method.";
+int n = 3;
+
+if (m + n > 10)
+
+{
+
+System.out.print(m + n);
+
+}
+
+if (m - n > 0)
+
+{
+
+System.out.print(m - n);
+
+}
 	}
+	
 
 }
