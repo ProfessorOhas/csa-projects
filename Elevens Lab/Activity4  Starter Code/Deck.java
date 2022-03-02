@@ -65,7 +65,7 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 		int r;
 		for (int k = this.cards.size()-1; k > 1; k--) {
-			r = (int) Math.floor(Math.random() * k);
+			r = (int) Math.floor(Math.random() * k + 1);
 			Card temp = this.cards.get(r);
 			this.cards.set(r, this.cards.get(k));
 			this.cards.set(k, temp);

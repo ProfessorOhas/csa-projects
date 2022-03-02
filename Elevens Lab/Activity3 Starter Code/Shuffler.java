@@ -92,7 +92,7 @@ public class Shuffler {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 		int r;
 		for (int k = VALUE_COUNT-1; k > 1; k--) {
-			r = (int) Math.floor(Math.random() * k);
+			r = (int) Math.floor(Math.random() * k + 1);
 			int temp = values[r];
 			values[r] = values[k];
 			values[k] = temp;
