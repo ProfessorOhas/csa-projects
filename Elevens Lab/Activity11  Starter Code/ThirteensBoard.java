@@ -48,9 +48,9 @@ public class ThirteensBoard extends Board {
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE MODIFIED IN ACTIVITY 11 *** */
 		if (selectedCards.size() == 1) {
-			return containsKing(selectedCards);
+			return findKing(selectedCards);
 		} else if (selectedCards.size() == 2) {
-			return containsPairSum13(selectedCards);
+			return findPairSum13(selectedCards);
 		} else {
 			return false;
 		}
@@ -67,7 +67,7 @@ public class ThirteensBoard extends Board {
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE MODIFIED IN ACTIVITY 11 *** */
 		List<Integer> cIndexes = cardIndexes();
-		return containsPairSum13(cIndexes) || containsKing(cIndexes);
+		return findPairSum13(cIndexes) || findKing(cIndexes);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class ThirteensBoard extends Board {
 	 * @return a list of the indexes of an 13-pair, if an 13-pair was found;
 	 *         an empty list, if an 13-pair was not found.
 	 */
-	private boolean containsPairSum13(List<Integer> selectedCards) {
+	private boolean findPairSum13(List<Integer> selectedCards) {
 		/* *** TO BE CHANGED INTO findPairSum13 IN ACTIVITY 11 *** */
 		for (int sk1 = 0; sk1 < selectedCards.size(); sk1++) {
 			int k1 = selectedCards.get(sk1).intValue();
@@ -100,15 +100,16 @@ public class ThirteensBoard extends Board {
 	 * @return a list of the index of a king, if a king was found;
 	 *         an empty list, if a king was not found.
 	 */
-	private boolean containsKing(List<Integer> selectedCards) {
+	private List<Integer> findKing(List<Integer> selectedCards) {
 		/* *** TO BE CHANGED INTO findKing IN ACTIVITY 11 *** */
+		List<Integer> indexes = new ArrayList<Integer>();
 		for (Integer kObj : selectedCards) {
 			int k = kObj.intValue();
 			if (cardAt(k).rank().equals("king")) {
-				return true;
+				indexes.add(k);
 			}
 		}
-		return false;
+		return indexes;
 	}
 
 	/**

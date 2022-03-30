@@ -158,6 +158,6 @@ public class ElevensBoard extends Board {
 			replaceSelectedCards(jqk);
 			return true;
 		}
-		return false; // REPLACE !
+		return false;
 	}
 }
