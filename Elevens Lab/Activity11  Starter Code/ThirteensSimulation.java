@@ -7,7 +7,7 @@ public class ThirteensSimulation {
 	/**
 	 * The number of games of Thirteens to play.
 	 */
-	private static final int GAMES_TO_PLAY = 1000;
+	private static final int GAMES_TO_PLAY = 1000000;
 
 	/**
 	 * Flag used to control debugging print statements.
